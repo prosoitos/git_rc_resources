@@ -1,0 +1,338 @@
+#+OPTIONS: title:t date:t author:t email:nil
+#+OPTIONS: toc:t h:6 num:t |:t todo:nil
+#+OPTIONS: *:t -:t ::t <:t \n:t e:t creator:nil
+#+OPTIONS: f:t inline:t tasks:t tex:t timestamp:t
+#+OPTIONS: html-preamble:t html-postamble:nil
+
+#+PROPERTY: header-args:sh :exports code
+
+#+TITLE:   Version control with Git
+#+DATE:	   {{{time(%B %d\, %Y)}}}
+#+AUTHOR:  Marie-Hélène Burle
+#+EMAIL:   msb2@sfu.ca
+
+#+BEGIN_CENTER
+https://user-images.githubusercontent.com/4634851/39484644-3dd62ffa-4d2b-11e8-99c6-070ecc9bd7a0.png
+#+END_CENTER
+#+BEGIN_right
+/(xkcd.com)/
+#+END_right
+
+* Prerequisites
+
+For this workshop, you need:
+
+- src_sh{git}
+- a [[https://github.com/][GitHub]] account
+
+* Version control
+
+#+BEGIN_QUOTE
+Why?
+#+END_QUOTE
+
+** Any easy way to keep track and navigate the whole history of a project
+
+#+BEGIN_CENTER
+http://phdcomics.com/comics/archive/phd101212s.gif
+#+END_CENTER
+
+** Any easy way to collaborate synchronously
+
+#+BEGIN_CENTER
+https://user-images.githubusercontent.com/4634851/39488302-a612395a-4d36-11e8-8844-5d7236dc44a5.png
+#+END_CENTER
+
+* Getting help
+
+First things first: how to get help on git?
+
+To get a manual chapter on a command, type:
+
+#+BEGIN_SRC sh
+git <command> --help
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+Example: git commit --help
+#+END_EXAMPLE
+
+To get a list of the options for that command, type:
+
+#+BEGIN_SRC sh
+git <command> -h
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+Example: git commit -h
+#+END_EXAMPLE
+
+* Setting up git
+
+#+BEGIN_SRC sh
+git config --list
+git config --global user.name "Your Name"
+git config --global user.email "you@email.ca"
+git config --global color.ui "auto"
+git config --global core.editor "nano -w" # or any other text editor you prefer
+git config --list
+#+END_SRC
+
+#+BEGIN_VERBATIM
+Configure git on your laptop.
+#+END_VERBATIM
+
+* Creating a repository
+
+We will create a project called src_sh{intro_git}. You can create it anywhere you wish on your machine.
+
+First, we need to create a directory called src_sh{intro_git} which will be the src_sh{root} of our project (it will contain the entire project).
+
+#+BEGIN_SRC sh
+cd /path/where/you/want/your/repository
+mkdir intro_git
+#+END_SRC
+
+Then, we need to initiate the repository:
+
+#+BEGIN_SRC sh
+cd intro_git
+git init		# this is what initiates the repository
+#+END_SRC
+
+Note that you only initiate a repository once.
+
+Let's inspect our new repository:
+
+#+BEGIN_SRC sh
+git status
+#+END_SRC
+
+#+BEGIN_VERBATIM
+You realize that you started version control on the wrong repository!
+How would you undo `git init`?
+#+END_VERBATIM
+
+* Tracking changes
+
+Let's create 3 files in our new repository:
+
+#+BEGIN_SRC sh
+touch my_file1.txt
+touch my_file2.txt
+touch my_file3.txt
+#+END_SRC
+
+#+BEGIN_VERBATIM
+Inspect your repository now. What has changed?
+#+END_VERBATIM
+
+To start tracking a single file (e.g. src_sh{my_file1.txt}), we run:
+
+#+BEGIN_SRC sh
+git add my_file1.txt
+#+END_SRC
+
+#+BEGIN_VERBATIM
+Inspect your repository again. What do you see now?
+#+END_VERBATIM
+
+Until you add a file to git with src_sh{git add}, that file is ignored by git.
+
+It could be tedious to add all the files one by one... If you want to add /all/ the files in your repository, you can run:
+
+#+BEGIN_SRC sh
+git add .
+#+END_SRC
+
+(Note the "." which is equivalent to the option src_sh{--all}).
+
+src_sh{my_file1.text} is now staged, but the version of that file is not yet recorded. For this, you need to "commit" it:
+
+#+BEGIN_SRC sh
+git commit -m "Initial commit"
+#+END_SRC
+
+And we can see the log of the actions on the file with:
+
+#+BEGIN_SRC sh
+git log
+#+END_SRC
+
+* COMMENT Second edit
+
+#+BEGIN_SRC sh
+nano my_file.txt   # add a second line to my_file.txt
+git status
+git diff
+git commit -m "continued my_file notes"   # likely will be getting an error message
+#+END_SRC
+
+You need to stage changes before committing. There are two solutions:
+
+- either
+
+#+BEGIN_SRC sh
+git add my_file.txt   # add my_file.txt again to the staging area
+git diff   # difference between working copy and staging area
+git diff --staged   # difference between staging area and repository
+git commit -m "continued my_file notes"
+#+END_SRC
+		   
+- or
+
+#+BEGIN_SRC sh
+git commit -a -m "continued my_file notes"   # automatically add files that are already being tracked
+#+END_SRC
+
+#+BEGIN_VERBATIM
+Create bio.txt, add 3 lines, commit to the repository, modify first line, add line 4,
+display changes, commit to the repository.
+#+END_VERBATIM
+
+* Exploring project history
+
+#+BEGIN_SRC sh
+git log
+#+END_SRC
+
+HEAD is the latest version in the repository, HEAD~1 is the previous, ...
+
+#+BEGIN_SRC sh
+git diff HEAD~1 my_file1.txt
+git diff HEAD~2 my_file1.txt
+git diff specificVersionNumber my_file1.txt   # version numbers have 40 characters
+git diff specificVersionNumberFirstFewUniquesCharacters my_file1.txt
+#+END_SRC
+
+You accidentally removed or changed my_file1.txt. How do you restore it?
+
+#+BEGIN_SRC sh
+git checkout HEAD my_file1.txt   # restore latest from the repository
+git checkout specificVersionNumber my_file1.txt   # restore specific version from the repository
+#+END_SRC
+
+* Ignoring files and directories
+
+#+BEGIN_SRC sh
+mkdir results
+touch a.dat b.dat c.dat results/a.out results/b.out
+git status
+nano .gitignore   # add *.dat and results, one per line
+git status
+git add .gitignore
+git commit -m "Add .gitignore file"
+git status
+git status --ignored   # show the ignored files
+#+END_SRC
+
+* Remotes
+
+There are many different types of remotes: departmental git server, usb key, or Version control repository hosting services like [[https://github.com/][GitHub]], [[https://about.gitlab.com/][GitLab]], or [[https://bitbucket.org/][Bitbucket]].
+
+For instance, here are my personal [[https://github.com/prosoitos][GitHub]] and [[https://gitlab.com/prosoitos][GitLab]] accounts.
+
+#+BEGIN_VERBATIM
+You should have already created a GitHub account. If you haven't, do this now.
+#+END_VERBATIM
+
+Now, we will create a remote for our src_sh{intro_git} project on GitHub.
+
+#+BEGIN_VERBATIM
+Log into github.com and create a new repository called "intro_git"
+#+END_VERBATIM
+
+We need to link our local repository with this remote:
+
+#+BEGIN_SRC sh
+git remote add origin git@github.com:prosoitos/intro_git.git
+git remote
+git remote -v
+git push origin master   # to upload to remote, should ask for password.
+#+END_SRC
+
+# If GitHub is confused about your identity, you can always specify your GitHub username by hand:
+
+# #+BEGIN_SRC sh
+# git remote set-url origin https://razoumov@github.com/razoumov/planets.git
+# #+END_SRC
+
+Check your GitHub repository in the web browser.
+
+* Collaborating
+
+As mentioned earlier, git allows you to work with your collaborators synchronously. You don't have to wait for them to be done with a document until you can start working on it.
+
+Public GitHub repositories provide read access to everyone, but only the owner can write to a repository. However, the owner can give write access to his/her collaborators.
+
+#+BEGIN_VERBATIM
+*Get into pairs.*
+
+Open your GitHub repository for writing to your partner:
+
+your profile -> repository -> settings -> collaborators and add their GitHub name.
+#+END_VERBATIM
+
+Everyone, please clone your partner's GitHub repository:
+
+#+BEGIN_SRC sh
+cd    # change to your home directory
+pwd   # should now show 'intro_git'
+git clone https://github.com/yourPartner/intro_git.git partner
+cd partner
+nano question.txt   # make some changes to this file, e.g., ask a question
+git commit -m -a "describe your changes"
+git push origin master
+#+END_SRC
+
+Then each one of you will download your partner's edits:
+
+#+BEGIN_SRC sh
+cd ~/intro_git
+git pull origin master
+cat question.txt    # you should see your partner's edits
+#+END_SRC
+
+* Resolving conflicts
+
+#+BEGIN_VERBATIM
+Two partners: pick one of the two repositories, synchronize them.
+Next, each add a line at the end of the same file.
+First, partner 1 pushes to the repository.
+Next, partner 2 tries to push to the repository... and gets an error.
+Partner 2 needs to resolve conflict before he can push.
+#+END_VERBATIM
+
+#+BEGIN_SRC sh
+git pull origin master
+cat contestedFile.txt
+nano contestedFile.txt   # edit to resolve conflict: it's up to you what to do
+git -a -m "resolved"
+git push origin master
+#+END_SRC
+
+* Contributing to a GitHub project
+
+#+BEGIN_CENTER
+https://user-images.githubusercontent.com/4634851/39488303-a6334690-4d36-11e8-9131-8c99687ac931.png
+#+END_CENTER
+
+1. fork a project
+
+2. clone it on your machine
+
+3. create a new branch
+
+4. checkout to that new branch
+
+5. make changes
+
+6. push changes to my cloned version
+
+7. make a pull request to initial project
+
+If the owner of the project accepts the pull request, the changes will be integrated in their project.
+
+#+BEGIN_VERBATIM
+You will contribute to my GitHub project "intro_git".
+#+END_VERBATIM

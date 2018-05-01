@@ -1,0 +1,1 @@
+You can find the workshop material [[https://prosoitos.github.io/git_workshop/workshop_intro_git.html][here]].

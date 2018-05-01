@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-05-01 Tue 13:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Version control with Git</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Marie-Hélène Burle" />
+<style type="text/css">
+<!--/*--><![CDATA[/*><!--*/
+@media all
+{
+  @import url(http://fonts.googleapis.com/css?family=Inconsolata);
+  @import url(http://fonts.googleapis.com/css?family=Lato);
+  @import url(http://fonts.googleapis.com/css?family=Linden+Hill);
+  @import url(http://fonts.googleapis.com/css?family=Roboto+Slab+Thin);
+  @import url(http://fonts.googleapis.com/css?family=Montez);
+  @import url(http://fonts.googleapis.com/css?family=IM+Fell+English);
+  @import url(http://fonts.googleapis.com/css?family=Rokkitt);  
+  /* @import url(http://fonts.googleapis.com/css?family=Anonymous+Pro);   */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  nav,
+  section,
+  summary {
+    display: block;
+  }
+  audio,
+  canvas,
+  video {
+    display: inline-block;
+  }
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+  [hidden] {
+    display: none;
+  }
+  html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 95%;
+    -ms-text-size-adjust: 95%;
+  }
+  body {
+    margin: 0;
+  }
+  a:focus {
+    outline: thin dotted;
+  }
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+  abbr[title] {
+    border-bottom: 1px dotted;
+  }
+  b,
+  strong {
+    font-weight: bold;
+  }
+  dfn {
+    font-style: italic;
+  }
+  mark {
+    background: #ff0;
+    color: #000;
+  }
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+  }
+  pre,
+  code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+  }
+  small {
+    font-size: 80%; 
+  }
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  img {
+    border: 0;
+  }
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  figure {
+    margin: 0;
+  }
+  fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+  }
+  legend {
+    border: 0;
+    padding: 0;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+  }
+  button,
+  input {
+    line-height: normal;
+  }
+  button,
+  html input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+  button[disabled],
+  input[disabled] {
+    cursor: default;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  textarea {
+    overflow: auto;
+    vertical-align: top;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  html {
+    font-family: 'Lato', sans-serif;
+    font-size: 110%;
+  }
+  pre,
+  code {
+    font-family: 'Inconsolata', sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+  h1 {
+    line-height: 50px;
+    padding: 20px 0px 10px 0px;
+  }
+  h2 {
+    line-height: 35px;
+    padding: 20px 0px 0px 0px;
+  }
+  h3 {
+    line-height: 31px;
+    padding: 15px 0px 0px 0px;
+  }
+  h4 {
+    line-height: 25px;
+  }
+  h5 {
+    line-height: 20px;    
+  }
+  h6 {
+    line-height: 15px;
+  }
+  html {
+    background-color: #faf9f1;
+    color: #242b2f;
+    margin: 1em;
+    line-height: 24px;
+  }
+  body {
+    background-color: #faf9f1;
+    margin: 0px auto 0px 150px;
+    max-width: 21.5cm;
+    /* border: 1pt solid #93a1a1; */
+    /* border: 1pt solid #d9d9d9; */
+    /* border: 1pt solid #c9cfcf; */
+    /* border-radius: 10px; */
+    padding: 1em;
+  } 
+  a {
+    color: #b58900;
+  }
+  a:visited {
+    color: #cb4b16;
+  }
+  a:hover {
+    color: #e65719;
+  }
+  h1 {
+    color: #890c0c;
+  }
+  h2 {
+    color: #19334d;
+  }
+  h3 {
+    color: #336699;
+  }
+  h4 {
+    color: #6699cc;
+  }
+  h5 {
+    color: #666666;
+  }
+  h6 {
+    color: #808080;
+  }
+  pre[class="src src-R"] {	/*for blocks src R*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  pre[class="src src-sh"] {	/*for blocks src sh*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0.8em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  .accordion {			/*for the button of the box that can hide/appear*/
+    background-color: #c2d6d6;
+    color: #262626;
+    padding: 0;
+    text-align: center;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #b3cccc;
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+    transition: 0.4s;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+  }
+  .active, .accordion:hover {	/*for the button of the box while hover*/
+    background-color: #94b8b8;
+    border: 0.5pt solid #85adad;
+    /* color: white; */
+  }
+  .panel {			/*for the box that can hide/appear*/
+    padding: 0em 1em;
+    margin: 0.7em 0 0 0;
+    background-color: #c2d6d6;
+    /* border: 0.5pt solid #d9d9d9; */
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  code {			/*for inline code*/
+    background-color: #f1f1f1;
+    color: #262626;
+    padding: 0em 0.2em 0em 0.2em;
+    font-size: 95%;
+    line-height: 22px;
+    border: 0.5pt solid #e6e6e6;
+    border-radius: 3px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
+  blockquote {			/*for block quote*/
+    /* font: 14px/22px normal helvetica, sans-serif; /\*original line*\/ */
+    line-height: 22px;
+    font-style: italic;
+    margin: 30px 0px 30px 50px;
+    padding-left: 15px;
+    border-left: 3px solid #ccc;
+  }
+  pre[class="example"] {	/*for block example*/
+    background-color: #f0efe7;
+    font-family: 'Rokkitt';
+    width: max-content;
+    color: #3e3e3e;
+    padding: 0.6em 0.8em 0.6em 0.8em;
+    /* font-size: 95%; */
+    line-height: 22px;
+    border: 0.5pt solid #ebeae0;
+    border-radius: 5px;
+    box-shadow: 0pt 0pts 0pt #eee8d5;
+  }
+  p[class="verse"] {		/*for block verse*/
+    color: #262626;
+    font-family: 'IM Fell English';
+    font-size: 110%;
+    font-style: italic;
+    /* margin-left: 30px;		/\*keep this line to have the verses indented*\/ */
+    line-height: 25px;
+  }
+  div[class="org-center"] {	/*for block center*/
+    margin: auto;
+    line-height: 22px;
+    width: max-content;
+  }
+  div[class="right"] {	/*for block right-aligned*/
+    text-align: right;
+    line-height: 22px;
+  }
+  div[class="HAND"] {		/*for block with handwriting font*/
+    font-family: 'Montez';
+    line-height: 26px;
+    font-size: 130%;
+  }
+  div[class="MONO"] {	/*for block with monospace font*/
+    /* font-family: 'Anonymous Pro'; */
+    font-family: 'Roboto Slab Thin';
+    margin: auto;
+    width: max-content;
+    color: #000000;
+    padding: 0.3 0.8em 0.3 0.8em;
+    font-size: 95%;
+    line-height: 20px;
+    /* margin: 0 0 0 5px; */
+    /* border: 0.5pt solid #d9d9d9; */
+    /* border-radius: 5px; */
+    /* font-size: 95%; */
+  }
+  div[class="VERBATIM"] {	/*for block verbatim*/
+    /* background-color: #f4faff; */
+    line-height: 27px;
+    font-family: 'Linden Hill';
+    /* font-weight: bold; */
+    margin: 45px 50px 45px 100px;
+    /* padding-left: 10px; */
+    /* border-left: 3px solid #890c0c; */
+    font-size: 120%;
+    color: #303b52;
+    padding: 0 0 0 15px;
+    border-left: 0.5px solid #425170;
+    width: max-content;
+  }
+  div[class="EMPHASIS"] {	/*for block verbatim*/
+    line-height: 27px;
+    /* font-weight: bold; */
+    margin: 45px 0px 45px 150px;
+    /* padding-left: 10px; */
+    /* border-left: 3px solid #890c0c; */
+    font-size: 135%;
+    color: #7c6262;
+  }
+  .org-ess-numbers {
+    color: #e28200; 
+  }
+  .org-comment-delimiter {
+    color: #8c8c8c;
+  }
+  .org-comment {
+    color: #8c8c8c;
+  }
+  .org-string {
+    color: #013b6d;
+  }
+  .org-ess-function-call {
+    color: #bf4040;
+    /* font-weight: bolder; */
+  }
+  .org-ess-operator {
+    color: #0b5e56;
+  }
+  .org-ess-assignment {
+    color: #0b5e56;
+  }
+  .org-ess-paren {
+    color: #0b5e56;
+  }
+  .org-ess-XopX {
+    color: #0b5e56;
+  }  
+  h1 {
+    font-size: 2.2em;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.6em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  h4 {
+    font-size: 1.4em;
+  }
+  h5 {
+    font-size: 1.3em;
+  }
+  h6 {
+    font-size: 1.2em;
+  }
+  .tag {
+    background-color: #eee8d5;
+    color: #d33682;
+    padding: 0 0.2em;
+  }
+  .todo,
+  .next,
+  .done {
+    color: #faf9f1;
+    background-color: #dc322f;
+    padding: 0 0.2em;
+  }
+  .tag {
+    -webkit-border-radius: 0.35em;
+    -moz-border-radius: 0.35em;
+    border-radius: 0.35em;
+  }
+  .TODO {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #2aa198;
+  }
+  .NEXT {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #268bd2;
+  }
+  .ACTIVE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #268bd2;
+  }
+  .DONE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #859900;
+  }
+  .WAITING {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #cb4b16;
+  }
+  .HOLD {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #d33682;
+  }
+  .NOTE {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #d33682;
+  }
+  .CANCELLED {
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    border-radius: 0.2em;
+    background-color: #859900;
+  }
+  
+  /* TOC inspired by http://jashkenas.github.com/coffee-script */
+  #table-of-contents {
+    font-size: 10pt;
+    position: fixed;
+    right: 0em;
+    top: 0em;
+    background: #faf9f1;
+    color: #596a73;
+    /* -webkit-box-shadow: 0 0 1em #777777; */
+    /* -moz-box-shadow: 0 0 1em #777777; */
+    /* -webkit-border-bottom-left-radius: 10px; */
+    /* -moz-border-radius-bottomleft: 10px; */
+    text-align: right;
+    /* ensure doesn't flow off the screen when expanded */
+    max-height: 80%;
+    overflow: auto;
+  }
+  #table-of-contents h2 {
+    font-size: 12pt;
+    max-width: 25em;
+    font-weight: bold;
+    color: #596a73;
+    padding-right: 3em;
+    padding-left: 0.8em;
+    padding-top: 1em;
+    padding-bottom: 0em;
+    text-align: left;
+  }
+  #table-of-contents #text-table-of-contents {
+    display: none;
+    text-align: left;
+  }
+  #table-of-contents:hover #text-table-of-contents {
+    display: block;
+    padding: 0.5em;
+    margin-top: -1.5em;
+  }
+
+  .rss_box {}
+  .rss_title, rss_title a {}
+  .rss_items {}
+  .rss_item a:link, .rss_item a:visited, .rss_item a:active {}
+  .rss_item a:hover {}
+  .rss_date {}
+
+} /* END OF @media all */
+
+
+@media screen
+{
+  #table-of-contents {
+    float: right;
+    border: 0px solid #CCC;
+    max-width: 25%;
+    overflow: auto;
+  }
+} /* END OF @media screen */
+/*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<span style="color:#596a73; font-size:16px"><b>Marie-Hélène Burle</b><br>May 01, 2018</span>
+</div>
+<div id="content">
+<h1 class="title">Version control with Git</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org0498940">1. Prerequisites</a></li>
+<li><a href="#org8cd9865">2. Version control</a>
+<ul>
+<li><a href="#org184f518">2.1. Any easy way to keep track and navigate the whole history of a project</a></li>
+<li><a href="#org41882d9">2.2. Any easy way to collaborate synchronously</a></li>
+</ul>
+</li>
+<li><a href="#orgb36d9c5">3. Getting help</a></li>
+<li><a href="#org9ba1d9a">4. Setting up git</a></li>
+<li><a href="#org94a3775">5. Creating a repository</a></li>
+<li><a href="#org348c658">6. Tracking changes</a></li>
+<li><a href="#orgaf303fb">7. Exploring project history</a></li>
+<li><a href="#org723fe5a">8. Ignoring files and directories</a></li>
+<li><a href="#orgb3c5c5d">9. Remotes</a></li>
+<li><a href="#org860c18f">10. Collaborating</a></li>
+<li><a href="#org6163072">11. Resolving conflicts</a></li>
+<li><a href="#orge1427a0">12. Contributing to a GitHub project</a></li>
+</ul>
+</div>
+</div>
+<div class="org-center">
+
+<div class="figure">
+<p><img src="https://user-images.githubusercontent.com/4634851/39484644-3dd62ffa-4d2b-11e8-99c6-070ecc9bd7a0.png" alt="39484644-3dd62ffa-4d2b-11e8-99c6-070ecc9bd7a0.png" /><br />
+</p>
+</div>
+</div>
+<div class="right">
+<p>
+<i>(xkcd.com)</i><br />
+</p>
+
+</div>
+
+<div id="outline-container-org0498940" class="outline-2">
+<h2 id="org0498940"><span class="section-number-2">1</span> Prerequisites</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+For this workshop, you need:<br />
+</p>
+
+<ul class="org-ul">
+<li><code class="src src-sh">git</code><br /></li>
+<li>a <a href="https://github.com/">GitHub</a> account<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8cd9865" class="outline-2">
+<h2 id="org8cd9865"><span class="section-number-2">2</span> Version control</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+Why?<br />
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-org184f518" class="outline-3">
+<h3 id="org184f518"><span class="section-number-3">2.1</span> Any easy way to keep track and navigate the whole history of a project</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-center">
+
+<div class="figure">
+<p><img src="http://phdcomics.com/comics/archive/phd101212s.gif" alt="phd101212s.gif" /><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41882d9" class="outline-3">
+<h3 id="org41882d9"><span class="section-number-3">2.2</span> Any easy way to collaborate synchronously</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-center">
+
+<div class="figure">
+<p><img src="https://user-images.githubusercontent.com/4634851/39488302-a612395a-4d36-11e8-8844-5d7236dc44a5.png" alt="39488302-a612395a-4d36-11e8-8844-5d7236dc44a5.png" /><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb36d9c5" class="outline-2">
+<h2 id="orgb36d9c5"><span class="section-number-2">3</span> Getting help</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+First things first: how to get help on git?<br />
+</p>
+
+<p>
+To get a manual chapter on a command, type:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git &lt;command&gt; --help
+</pre>
+</div>
+
+<pre class="example">
+Example: git commit --help
+</pre>
+
+<p>
+To get a list of the options for that command, type:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git &lt;command&gt; -h
+</pre>
+</div>
+
+<pre class="example">
+Example: git commit -h
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9ba1d9a" class="outline-2">
+<h2 id="org9ba1d9a"><span class="section-number-2">4</span> Setting up git</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-sh">git config --list
+git config --global user.name <span class="org-string">"Your Name"</span>
+git config --global user.email <span class="org-string">"you@email.ca"</span>
+git config --global color.ui <span class="org-string">"auto"</span>
+git config --global core.editor <span class="org-string">"nano -w"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">or any other text editor you prefer</span>
+git config --list
+</pre>
+</div>
+
+<div class="VERBATIM">
+<p>
+Configure git on your laptop.<br />
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94a3775" class="outline-2">
+<h2 id="org94a3775"><span class="section-number-2">5</span> Creating a repository</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+We will create a project called <code class="src src-sh">intro_git</code>. You can create it anywhere you wish on your machine.<br />
+</p>
+
+<p>
+First, we need to create a directory called <code class="src src-sh">intro_git</code> which will be the <code class="src src-sh">root</code> of our project (it will contain the entire project).<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-builtin">cd</span> /path/where/you/want/your/repository
+mkdir intro_git
+</pre>
+</div>
+
+<p>
+Then, we need to initiate the repository:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-builtin">cd</span> intro_git
+git init                <span class="org-comment-delimiter"># </span><span class="org-comment">this is what initiates the repository</span>
+</pre>
+</div>
+
+<p>
+Note that you only initiate a repository once.<br />
+</p>
+
+<p>
+Let's inspect our new repository:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git status
+</pre>
+</div>
+
+<div class="VERBATIM">
+<p>
+You realize that you started version control on the wrong repository!<br />
+How would you undo `git init`?<br />
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org348c658" class="outline-2">
+<h2 id="org348c658"><span class="section-number-2">6</span> Tracking changes</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Let's create 3 files in our new repository:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">touch my_file1.txt
+touch my_file2.txt
+touch my_file3.txt
+</pre>
+</div>
+
+<div class="VERBATIM">
+<p>
+Inspect your repository now. What has changed?<br />
+</p>
+
+</div>
+
+<p>
+To start tracking a single file (e.g. <code class="src src-sh">my_file1.txt</code>), we run:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git add my_file1.txt
+</pre>
+</div>
+
+<div class="VERBATIM">
+<p>
+Inspect your repository again. What do you see now?<br />
+</p>
+
+</div>
+
+<p>
+Until you add a file to git with <code class="src src-sh">git add</code>, that file is ignored by git.<br />
+</p>
+
+<p>
+It could be tedious to add all the files one by one&#x2026; If you want to add <i>all</i> the files in your repository, you can run:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git add .
+</pre>
+</div>
+
+<p>
+(Note the "." which is equivalent to the option <code class="src src-sh">--all</code>).<br />
+</p>
+
+<p>
+<code class="src src-sh">my_file1.text</code> is now staged, but the version of that file is not yet recorded. For this, you need to "commit" it:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git commit -m <span class="org-string">"Initial commit"</span>
+</pre>
+</div>
+
+<p>
+And we can see the log of the actions on the file with:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git log
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaf303fb" class="outline-2">
+<h2 id="orgaf303fb"><span class="section-number-2">7</span> Exploring project history</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+<pre class="src src-sh">git log
+</pre>
+</div>
+
+<p>
+HEAD is the latest version in the repository, HEAD~1 is the previous, &#x2026;<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git diff HEAD~1 my_file1.txt
+git diff HEAD~2 my_file1.txt
+git diff specificVersionNumber my_file1.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">version numbers have 40 characters</span>
+git diff specificVersionNumberFirstFewUniquesCharacters my_file1.txt
+</pre>
+</div>
+
+<p>
+You accidentally removed or changed my<sub>file1.txt</sub>. How do you restore it?<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git checkout HEAD my_file1.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">restore latest from the repository</span>
+git checkout specificVersionNumber my_file1.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">restore specific version from the repository</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org723fe5a" class="outline-2">
+<h2 id="org723fe5a"><span class="section-number-2">8</span> Ignoring files and directories</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+<pre class="src src-sh">mkdir results
+touch a.dat b.dat c.dat results/a.out results/b.out
+git status
+nano .gitignore   <span class="org-comment-delimiter"># </span><span class="org-comment">add *.dat and results, one per line</span>
+git status
+git add .gitignore
+git commit -m <span class="org-string">"Add .gitignore file"</span>
+git status
+git status --ignored   <span class="org-comment-delimiter"># </span><span class="org-comment">show the ignored files</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb3c5c5d" class="outline-2">
+<h2 id="orgb3c5c5d"><span class="section-number-2">9</span> Remotes</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+There are many different types of remotes: departmental git server, usb key, or Version control repository hosting services like <a href="https://github.com/">GitHub</a>, <a href="https://about.gitlab.com/">GitLab</a>, or <a href="https://bitbucket.org/">Bitbucket</a>.<br />
+</p>
+
+<p>
+For instance, here are my personal <a href="https://github.com/prosoitos">GitHub</a> and <a href="https://gitlab.com/prosoitos">GitLab</a> accounts.<br />
+</p>
+
+<div class="VERBATIM">
+<p>
+You should have already created a GitHub account. If you haven't, do this now.<br />
+</p>
+
+</div>
+
+<p>
+Now, we will create a remote for our <code class="src src-sh">intro_git</code> project on GitHub.<br />
+</p>
+
+<div class="VERBATIM">
+<p>
+Log into github.com and create a new repository called "intro<sub>git</sub>"<br />
+</p>
+
+</div>
+
+<p>
+We need to link our local repository with this remote:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git remote add origin git@github.com:prosoitos/intro_git.git
+git remote
+git remote -v
+git push origin master   <span class="org-comment-delimiter"># </span><span class="org-comment">to upload to remote, should ask for password.</span>
+</pre>
+</div>
+
+<p>
+Check your GitHub repository in the web browser.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org860c18f" class="outline-2">
+<h2 id="org860c18f"><span class="section-number-2">10</span> Collaborating</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+As mentioned earlier, git allows you to work with your collaborators synchronously. You don't have to wait for them to be done with a document until you can start working on it.<br />
+</p>
+
+<p>
+Public GitHub repositories provide read access to everyone, but only the owner can write to a repository. However, the owner can give write access to his/her collaborators.<br />
+</p>
+
+<div class="VERBATIM">
+<p>
+<b>Get into pairs.</b><br />
+</p>
+
+<p>
+Open your GitHub repository for writing to your partner:<br />
+</p>
+
+<p>
+your profile -&gt; repository -&gt; settings -&gt; collaborators and add their GitHub name.<br />
+</p>
+
+</div>
+
+<p>
+Everyone, please clone your partner's GitHub repository:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-builtin">cd</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">change to your home directory</span>
+<span class="org-builtin">pwd</span>   <span class="org-comment-delimiter"># </span><span class="org-comment">should now show 'intro_git'</span>
+git clone https://github.com/yourPartner/intro_git.git partner
+<span class="org-builtin">cd</span> partner
+nano question.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">make some changes to this file, e.g., ask a question</span>
+git commit -m -a <span class="org-string">"describe your changes"</span>
+git push origin master
+</pre>
+</div>
+
+<p>
+Then each one of you will download your partner's edits:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-builtin">cd</span> ~/intro_git
+git pull origin master
+cat question.txt    <span class="org-comment-delimiter"># </span><span class="org-comment">you should see your partner's edits</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6163072" class="outline-2">
+<h2 id="org6163072"><span class="section-number-2">11</span> Resolving conflicts</h2>
+<div class="outline-text-2" id="text-11">
+<div class="VERBATIM">
+<p>
+Two partners: pick one of the two repositories, synchronize them.<br />
+Next, each add a line at the end of the same file.<br />
+First, partner 1 pushes to the repository.<br />
+Next, partner 2 tries to push to the repository&#x2026; and gets an error.<br />
+Partner 2 needs to resolve conflict before he can push.<br />
+</p>
+
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh">git pull origin master
+cat contestedFile.txt
+nano contestedFile.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">edit to resolve conflict: it's up to you what to do</span>
+git -a -m <span class="org-string">"resolved"</span>
+git push origin master
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge1427a0" class="outline-2">
+<h2 id="orge1427a0"><span class="section-number-2">12</span> Contributing to a GitHub project</h2>
+<div class="outline-text-2" id="text-12">
+<div class="org-center">
+
+<div class="figure">
+<p><img src="https://user-images.githubusercontent.com/4634851/39488303-a6334690-4d36-11e8-9131-8c99687ac931.png" alt="39488303-a6334690-4d36-11e8-9131-8c99687ac931.png" /><br />
+</p>
+</div>
+</div>
+
+<ol class="org-ol">
+<li>fork a project<br /></li>
+
+<li>clone it on your machine<br /></li>
+
+<li>create a new branch<br /></li>
+
+<li>checkout to that new branch<br /></li>
+
+<li>make changes<br /></li>
+
+<li>push changes to my cloned version<br /></li>
+
+<li>make a pull request to initial project<br /></li>
+</ol>
+
+<p>
+If the owner of the project accepts the pull request, the changes will be integrated in their project.<br />
+</p>
+
+<div class="VERBATIM">
+<p>
+You will contribute to my GitHub project "intro<sub>git</sub>".<br />
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
