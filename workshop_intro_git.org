@@ -205,7 +205,7 @@ git diff specificVersionNumber my_file1.txt   # version numbers have 40 characte
 git diff specificVersionNumberFirstFewUniquesCharacters my_file1.txt
 #+END_SRC
 
-You accidentally removed or changed my_file1.txt. How do you restore it?
+You accidentally removed or changed src_sh{my_file1.txt}. How do you restore it?
 
 #+BEGIN_SRC sh
 git checkout HEAD my_file1.txt   # restore latest from the repository
