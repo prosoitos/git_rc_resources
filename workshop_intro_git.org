@@ -334,5 +334,5 @@ https://user-images.githubusercontent.com/4634851/39488303-a6334690-4d36-11e8-91
 If the owner of the project accepts the pull request, the changes will be integrated in their project.
 
 #+BEGIN_VERBATIM
-You will contribute to my GitHub project "intro_git".
+You will contribute to my GitHub project src_sh{intro_git}.
 #+END_VERBATIM
