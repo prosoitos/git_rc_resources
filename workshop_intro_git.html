@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-02 Wed 00:39 -->
+<!-- 2018-05-02 Wed 10:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Version control with Git</title>
@@ -622,24 +622,24 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb234045">1. Prerequisites</a></li>
-<li><a href="#org85634c9">2. Version control</a>
+<li><a href="#org905d3f5">1. Prerequisites</a></li>
+<li><a href="#org2c5be83">2. Version control</a>
 <ul>
-<li><a href="#orge94f233">2.1. Any easy way to keep track and navigate the whole history of a project</a></li>
-<li><a href="#org2fc29bf">2.2. Any easy way to collaborate synchronously</a></li>
+<li><a href="#org0cdbf45">2.1. Any easy way to keep track and navigate the whole history of a project</a></li>
+<li><a href="#org6e0b121">2.2. Any easy way to collaborate synchronously</a></li>
 </ul>
 </li>
-<li><a href="#org0574de3">3. Getting help</a></li>
-<li><a href="#org40ff4a6">4. Setting up git</a></li>
-<li><a href="#org832f41f">5. Creating a repository</a></li>
-<li><a href="#org981f3f8">6. Tracking changes</a></li>
-<li><a href="#orgd6697b9">7. Exploring the project history</a></li>
-<li><a href="#orgab02421">8. Going back in time</a></li>
-<li><a href="#orgc0d4ac7">9. Ignoring files and directories</a></li>
-<li><a href="#orgde03da2">10. Remotes</a></li>
-<li><a href="#org1b05373">11. Collaborating</a></li>
-<li><a href="#org1a285b7">12. Resolving conflicts</a></li>
-<li><a href="#orga7a4a88">13. Contributing to a GitHub project</a></li>
+<li><a href="#org505add0">3. Getting help</a></li>
+<li><a href="#org74942f6">4. Setting up git</a></li>
+<li><a href="#orgac921c4">5. Creating a repository</a></li>
+<li><a href="#orgff60e57">6. Tracking changes</a></li>
+<li><a href="#orgfc72873">7. Exploring the project history</a></li>
+<li><a href="#orgf7e53a8">8. Going back in time</a></li>
+<li><a href="#org659c6aa">9. Ignoring files and directories</a></li>
+<li><a href="#org050f229">10. Remotes</a></li>
+<li><a href="#org5e630a1">11. Collaborating</a></li>
+<li><a href="#org095e7c3">12. Resolving conflicts</a></li>
+<li><a href="#orgbb955a4">13. Contributing to a GitHub project</a></li>
 </ul>
 </div>
 </div>
@@ -657,8 +657,8 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-orgb234045" class="outline-2">
-<h2 id="orgb234045"><span class="section-number-2">1</span> Prerequisites</h2>
+<div id="outline-container-org905d3f5" class="outline-2">
+<h2 id="org905d3f5"><span class="section-number-2">1</span> Prerequisites</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For this workshop, you need:<br />
@@ -671,8 +671,8 @@ For this workshop, you need:<br />
 </div>
 </div>
 
-<div id="outline-container-org85634c9" class="outline-2">
-<h2 id="org85634c9"><span class="section-number-2">2</span> Version control</h2>
+<div id="outline-container-org2c5be83" class="outline-2">
+<h2 id="org2c5be83"><span class="section-number-2">2</span> Version control</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -681,8 +681,8 @@ Why?<br />
 </blockquote>
 </div>
 
-<div id="outline-container-orge94f233" class="outline-3">
-<h3 id="orge94f233"><span class="section-number-3">2.1</span> Any easy way to keep track and navigate the whole history of a project</h3>
+<div id="outline-container-org0cdbf45" class="outline-3">
+<h3 id="org0cdbf45"><span class="section-number-3">2.1</span> Any easy way to keep track and navigate the whole history of a project</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-center">
 
@@ -694,8 +694,8 @@ Why?<br />
 </div>
 </div>
 
-<div id="outline-container-org2fc29bf" class="outline-3">
-<h3 id="org2fc29bf"><span class="section-number-3">2.2</span> Any easy way to collaborate synchronously</h3>
+<div id="outline-container-org6e0b121" class="outline-3">
+<h3 id="org6e0b121"><span class="section-number-3">2.2</span> Any easy way to collaborate synchronously</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-center">
 
@@ -708,8 +708,8 @@ Why?<br />
 </div>
 </div>
 
-<div id="outline-container-org0574de3" class="outline-2">
-<h2 id="org0574de3"><span class="section-number-2">3</span> Getting help</h2>
+<div id="outline-container-org505add0" class="outline-2">
+<h2 id="org505add0"><span class="section-number-2">3</span> Getting help</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 First things first: how to get help on git?<br />
@@ -743,8 +743,8 @@ Example: git commit -h
 </div>
 </div>
 
-<div id="outline-container-org40ff4a6" class="outline-2">
-<h2 id="org40ff4a6"><span class="section-number-2">4</span> Setting up git</h2>
+<div id="outline-container-org74942f6" class="outline-2">
+<h2 id="org74942f6"><span class="section-number-2">4</span> Setting up git</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-sh">git config --global user.name <span class="org-string">"Your Name"</span>
@@ -766,8 +766,8 @@ Configure git on your laptop.<br />
 </div>
 </div>
 
-<div id="outline-container-org832f41f" class="outline-2">
-<h2 id="org832f41f"><span class="section-number-2">5</span> Creating a repository</h2>
+<div id="outline-container-orgac921c4" class="outline-2">
+<h2 id="orgac921c4"><span class="section-number-2">5</span> Creating a repository</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We will create a project called <code class="src src-sh">project</code>. You can create it anywhere you wish on your machine.<br />
@@ -816,8 +816,8 @@ How would you undo <code class="src src-sh">git init</code>?<br />
 </div>
 </div>
 
-<div id="outline-container-org981f3f8" class="outline-2">
-<h2 id="org981f3f8"><span class="section-number-2">6</span> Tracking changes</h2>
+<div id="outline-container-orgff60e57" class="outline-2">
+<h2 id="orgff60e57"><span class="section-number-2">6</span> Tracking changes</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Let's create 3 files in our new repository:<br />
@@ -948,8 +948,8 @@ display changes, commit to the repository.<br />
 </div>
 </div>
 
-<div id="outline-container-orgd6697b9" class="outline-2">
-<h2 id="orgd6697b9"><span class="section-number-2">7</span> Exploring the project history</h2>
+<div id="outline-container-orgfc72873" class="outline-2">
+<h2 id="orgfc72873"><span class="section-number-2">7</span> Exploring the project history</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 To list all the commits of a project, you can run:<br />
@@ -977,8 +977,8 @@ git diff &lt;hash&gt; my_file1.txt <span class="org-comment-delimiter"># </span>
 </div>
 </div>
 
-<div id="outline-container-orgab02421" class="outline-2">
-<h2 id="orgab02421"><span class="section-number-2">8</span> Going back in time</h2>
+<div id="outline-container-orgf7e53a8" class="outline-2">
+<h2 id="orgf7e53a8"><span class="section-number-2">8</span> Going back in time</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 You made changes to <code class="src src-sh">my_file1.txt</code>, but would like to . How do you restore it?<br />
@@ -992,8 +992,8 @@ git checkout specificVersionNumber my_file1.txt <span class="org-comment-delimit
 </div>
 </div>
 
-<div id="outline-container-orgc0d4ac7" class="outline-2">
-<h2 id="orgc0d4ac7"><span class="section-number-2">9</span> Ignoring files and directories</h2>
+<div id="outline-container-org659c6aa" class="outline-2">
+<h2 id="org659c6aa"><span class="section-number-2">9</span> Ignoring files and directories</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 There are files you want to version control: code scripts, writing in text files.<br />
@@ -1513,8 +1513,8 @@ git status --ignored <span class="org-comment-delimiter"># </span><span class="o
 </div>
 </div>
 
-<div id="outline-container-orgde03da2" class="outline-2">
-<h2 id="orgde03da2"><span class="section-number-2">10</span> Remotes</h2>
+<div id="outline-container-org050f229" class="outline-2">
+<h2 id="org050f229"><span class="section-number-2">10</span> Remotes</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 There are many different types of remotes: departmental git server, usb key, or Version control repository hosting services like <a href="https://github.com/">GitHub</a>, <a href="https://about.gitlab.com/">GitLab</a>, or <a href="https://bitbucket.org/">Bitbucket</a>.<br />
@@ -1560,8 +1560,8 @@ Check your GitHub repository in the web browser.<br />
 </div>
 </div>
 
-<div id="outline-container-org1b05373" class="outline-2">
-<h2 id="org1b05373"><span class="section-number-2">11</span> Collaborating</h2>
+<div id="outline-container-org5e630a1" class="outline-2">
+<h2 id="org5e630a1"><span class="section-number-2">11</span> Collaborating</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 As mentioned earlier, git allows you to work with your collaborators synchronously. You don't have to wait for them to be done with a document until you can start working on it.<br />
@@ -1614,8 +1614,8 @@ cat question.txt    <span class="org-comment-delimiter"># </span><span class="or
 </div>
 </div>
 
-<div id="outline-container-org1a285b7" class="outline-2">
-<h2 id="org1a285b7"><span class="section-number-2">12</span> Resolving conflicts</h2>
+<div id="outline-container-org095e7c3" class="outline-2">
+<h2 id="org095e7c3"><span class="section-number-2">12</span> Resolving conflicts</h2>
 <div class="outline-text-2" id="text-12">
 <div class="VERBATIM">
 <p>
@@ -1639,8 +1639,8 @@ git push origin master
 </div>
 </div>
 
-<div id="outline-container-orga7a4a88" class="outline-2">
-<h2 id="orga7a4a88"><span class="section-number-2">13</span> Contributing to a GitHub project</h2>
+<div id="outline-container-orgbb955a4" class="outline-2">
+<h2 id="orgbb955a4"><span class="section-number-2">13</span> Contributing to a GitHub project</h2>
 <div class="outline-text-2" id="text-13">
 <div class="org-center">
 
@@ -1650,19 +1650,16 @@ git push origin master
 </div>
 </div>
 
+<style type="text/css">
+ol { list-style-type: upper-roman; }
+</style>
 <ol class="org-ol">
 <li>fork a project<br /></li>
-
 <li>clone it on your machine<br /></li>
-
 <li>create a new branch<br /></li>
-
 <li>checkout to that new branch<br /></li>
-
 <li>make changes<br /></li>
-
 <li>push changes to my cloned version<br /></li>
-
 <li>make a pull request to initial project<br /></li>
 </ol>
 

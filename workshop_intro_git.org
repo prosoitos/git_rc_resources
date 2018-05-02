@@ -453,19 +453,16 @@ git push origin master
 https://user-images.githubusercontent.com/4634851/39488303-a6334690-4d36-11e8-9131-8c99687ac931.png
 #+END_CENTER
 
-a. fork a project
-
-b. clone it on your machine
-
-c. create a new branch
-
-d. checkout to that new branch
-
-e. make changes
-
-f. push changes to my cloned version
-
-g. make a pull request to initial project
+#+HTML: <style type="text/css">
+#+HTML:  ol { list-style-type: upper-alpha; }
+#+HTML: </style>
+1. fork a project
+2. clone it on your machine
+3. create a new branch
+4. checkout to that new branch
+5. make changes
+6. push changes to my cloned version
+7. make a pull request to initial project
 
 If the owner of the project accepts the pull request, the changes will be integrated in their project.
 
