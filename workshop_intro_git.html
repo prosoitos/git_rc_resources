@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-01 Tue 14:51 -->
+<!-- 2018-05-02 Wed 00:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Version control with Git</title>
@@ -279,8 +279,7 @@
   .accordion {			/*for the button of the box that can hide/appear*/
     background-color: #c2d6d6;
     color: #262626;
-    padding: 0;
-    text-align: center;
+    padding: 0 0.8em;
     font-size: 95%;
     line-height: 22px;
     border: 0.5pt solid #b3cccc;
@@ -288,7 +287,6 @@
     box-shadow: 0pt 0pt 0pt #eee8d5;
     transition: 0.4s;
     cursor: pointer;
-    padding: 0;
     outline: none;
   }
   .active, .accordion:hover {	/*for the button of the box while hover*/
@@ -616,7 +614,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:16px"><b>Marie-Hélène Burle</b><br>May 01, 2018</span>
+<span style="color:#596a73; font-size:16px"><b>Marie-Hélène Burle</b><br>May 02, 2018</span>
 </div>
 <div id="content">
 <h1 class="title">Version control with Git</h1>
@@ -624,23 +622,24 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc5ebc0e">1. Prerequisites</a></li>
-<li><a href="#org34bc755">2. Version control</a>
+<li><a href="#orgb234045">1. Prerequisites</a></li>
+<li><a href="#org85634c9">2. Version control</a>
 <ul>
-<li><a href="#org232f600">2.1. Any easy way to keep track and navigate the whole history of a project</a></li>
-<li><a href="#org727bb7b">2.2. Any easy way to collaborate synchronously</a></li>
+<li><a href="#orge94f233">2.1. Any easy way to keep track and navigate the whole history of a project</a></li>
+<li><a href="#org2fc29bf">2.2. Any easy way to collaborate synchronously</a></li>
 </ul>
 </li>
-<li><a href="#org93a018b">3. Getting help</a></li>
-<li><a href="#org0789c2c">4. Setting up git</a></li>
-<li><a href="#org57e99a4">5. Creating a repository</a></li>
-<li><a href="#org39e9dd6">6. Tracking changes</a></li>
-<li><a href="#org95e431d">7. Exploring project history</a></li>
-<li><a href="#org0da40d3">8. Ignoring files and directories</a></li>
-<li><a href="#org9c9994a">9. Remotes</a></li>
-<li><a href="#orgfa29e7a">10. Collaborating</a></li>
-<li><a href="#orgf780694">11. Resolving conflicts</a></li>
-<li><a href="#orgd91f434">12. Contributing to a GitHub project</a></li>
+<li><a href="#org0574de3">3. Getting help</a></li>
+<li><a href="#org40ff4a6">4. Setting up git</a></li>
+<li><a href="#org832f41f">5. Creating a repository</a></li>
+<li><a href="#org981f3f8">6. Tracking changes</a></li>
+<li><a href="#orgd6697b9">7. Exploring the project history</a></li>
+<li><a href="#orgab02421">8. Going back in time</a></li>
+<li><a href="#orgc0d4ac7">9. Ignoring files and directories</a></li>
+<li><a href="#orgde03da2">10. Remotes</a></li>
+<li><a href="#org1b05373">11. Collaborating</a></li>
+<li><a href="#org1a285b7">12. Resolving conflicts</a></li>
+<li><a href="#orga7a4a88">13. Contributing to a GitHub project</a></li>
 </ul>
 </div>
 </div>
@@ -653,13 +652,13 @@ for the JavaScript code in this tag.
 </div>
 <div class="right">
 <p>
-<i>(xkcd.com)</i><br />
+<i>(from <a href="https://xkcd.com/">xkcd.com</a>)</i><br />
 </p>
 
 </div>
 
-<div id="outline-container-orgc5ebc0e" class="outline-2">
-<h2 id="orgc5ebc0e"><span class="section-number-2">1</span> Prerequisites</h2>
+<div id="outline-container-orgb234045" class="outline-2">
+<h2 id="orgb234045"><span class="section-number-2">1</span> Prerequisites</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For this workshop, you need:<br />
@@ -672,8 +671,8 @@ For this workshop, you need:<br />
 </div>
 </div>
 
-<div id="outline-container-org34bc755" class="outline-2">
-<h2 id="org34bc755"><span class="section-number-2">2</span> Version control</h2>
+<div id="outline-container-org85634c9" class="outline-2">
+<h2 id="org85634c9"><span class="section-number-2">2</span> Version control</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -682,8 +681,8 @@ Why?<br />
 </blockquote>
 </div>
 
-<div id="outline-container-org232f600" class="outline-3">
-<h3 id="org232f600"><span class="section-number-3">2.1</span> Any easy way to keep track and navigate the whole history of a project</h3>
+<div id="outline-container-orge94f233" class="outline-3">
+<h3 id="orge94f233"><span class="section-number-3">2.1</span> Any easy way to keep track and navigate the whole history of a project</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-center">
 
@@ -695,8 +694,8 @@ Why?<br />
 </div>
 </div>
 
-<div id="outline-container-org727bb7b" class="outline-3">
-<h3 id="org727bb7b"><span class="section-number-3">2.2</span> Any easy way to collaborate synchronously</h3>
+<div id="outline-container-org2fc29bf" class="outline-3">
+<h3 id="org2fc29bf"><span class="section-number-3">2.2</span> Any easy way to collaborate synchronously</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-center">
 
@@ -709,8 +708,8 @@ Why?<br />
 </div>
 </div>
 
-<div id="outline-container-org93a018b" class="outline-2">
-<h2 id="org93a018b"><span class="section-number-2">3</span> Getting help</h2>
+<div id="outline-container-org0574de3" class="outline-2">
+<h2 id="org0574de3"><span class="section-number-2">3</span> Getting help</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 First things first: how to get help on git?<br />
@@ -744,15 +743,16 @@ Example: git commit -h
 </div>
 </div>
 
-<div id="outline-container-org0789c2c" class="outline-2">
-<h2 id="org0789c2c"><span class="section-number-2">4</span> Setting up git</h2>
+<div id="outline-container-org40ff4a6" class="outline-2">
+<h2 id="org40ff4a6"><span class="section-number-2">4</span> Setting up git</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-sh">git config --list
-git config --global user.name <span class="org-string">"Your Name"</span>
-git config --global user.email <span class="org-string">"you@email.ca"</span>
+<pre class="src src-sh">git config --global user.name <span class="org-string">"Your Name"</span>
+git config --global user.email <span class="org-string">"your@email.ca"</span>
 git config --global color.ui <span class="org-string">"auto"</span>
 git config --global core.editor <span class="org-string">"nano -w"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">or any other text editor you prefer</span>
+git config --global core.autocrlf input   <span class="org-comment-delimiter"># </span><span class="org-comment">correct line endings if you are on macOS or Linux</span>
+git config --global core.autocrlf true    <span class="org-comment-delimiter"># </span><span class="org-comment">correct line endings if you are on Windows</span>
 git config --list
 </pre>
 </div>
@@ -766,20 +766,20 @@ Configure git on your laptop.<br />
 </div>
 </div>
 
-<div id="outline-container-org57e99a4" class="outline-2">
-<h2 id="org57e99a4"><span class="section-number-2">5</span> Creating a repository</h2>
+<div id="outline-container-org832f41f" class="outline-2">
+<h2 id="org832f41f"><span class="section-number-2">5</span> Creating a repository</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-We will create a project called <code class="src src-sh">intro_git</code>. You can create it anywhere you wish on your machine.<br />
+We will create a project called <code class="src src-sh">project</code>. You can create it anywhere you wish on your machine.<br />
 </p>
 
 <p>
-First, we need to create a directory called <code class="src src-sh">intro_git</code> which will be the <code class="src src-sh">root</code> of our project (it will contain the entire project).<br />
+First, we need to create a directory called <code class="src src-sh">project</code> which will be the <code class="src src-sh">root</code> of our project (it will contain the entire project).<br />
 </p>
 
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-builtin">cd</span> /path/where/you/want/your/repository
-mkdir intro_git
+mkdir project
 </pre>
 </div>
 
@@ -788,7 +788,7 @@ Then, we need to initiate the repository:<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-builtin">cd</span> intro_git
+<pre class="src src-sh"><span class="org-builtin">cd</span> project
 git init                <span class="org-comment-delimiter"># </span><span class="org-comment">this is what initiates the repository</span>
 </pre>
 </div>
@@ -809,15 +809,15 @@ Let's inspect our new repository:<br />
 <div class="VERBATIM">
 <p>
 You realize that you started version control on the wrong repository!<br />
-How would you undo `git init`?<br />
+How would you undo <code class="src src-sh">git init</code>?<br />
 </p>
 
 </div>
 </div>
 </div>
 
-<div id="outline-container-org39e9dd6" class="outline-2">
-<h2 id="org39e9dd6"><span class="section-number-2">6</span> Tracking changes</h2>
+<div id="outline-container-org981f3f8" class="outline-2">
+<h2 id="org981f3f8"><span class="section-number-2">6</span> Tracking changes</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Let's create 3 files in our new repository:<br />
@@ -867,11 +867,11 @@ It could be tedious to add all the files one by one&#x2026; If you want to add <
 </div>
 
 <p>
-(Note the "." which is equivalent to the option <code class="src src-sh">--all</code>).<br />
+(Note the <code class="src src-sh">.</code> which is equivalent to the option <code class="src src-sh">--all</code>).<br />
 </p>
 
 <p>
-<code class="src src-sh">my_file1.text</code> is now staged, but the version of that file is not yet recorded. For this, you need to "commit" it:<br />
+<code class="src src-sh">my_file1.text</code> is now staged, but the version of that file is not yet recorded. For this, you need to "commit" it. Each commit has an associated message. You can type it directly when you commit with the option <code class="src src-sh">-m</code> (for message), this way:<br />
 </p>
 
 <div class="org-src-container">
@@ -880,69 +880,642 @@ It could be tedious to add all the files one by one&#x2026; If you want to add <
 </div>
 
 <p>
-And we can see the log of the actions on the file with:<br />
+If you simply time <code class="src src-sh">git commit</code>, git will open your text editor so that you can type your commit message in it.<br />
 </p>
 
-<div class="org-src-container">
-<pre class="src src-sh">git log
+<p>
+Each commit is identified by a unique 40-character checksum hash or SHA-1 hash. People often simply call it a "hash". The short form of a hash only contains the 7 first characters, which is generally sufficient to identify a commit.<br />
+</p>
+
+<pre class="example">
+Side note:
+
+It is possible to 
+
+- 
+git rev-parse HEAD
+
+- 
+git rev-parse --short HEAD
+
+-
+git rev-parse --short=&lt;n&gt; HEAD
+
+- Show the entire hash with the digits necessary to uniquely identify it in color:
+git rev-parse HEAD | GREP_COLORS='ms=34;1' grep $(git rev-parse --short=0 HEAD)
 </pre>
+
+<div class="org-src-container">
+<pre class="src src-sh">nano my_file1.txt                       <span class="org-comment-delimiter"># </span><span class="org-comment">add a few lines to my_file1.txt</span>
+git status
+git diff
+git commit -m <span class="org-string">"continued my_file1"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">likely will be getting an error message</span>
+</pre>
+</div>
+
+<p>
+You need to stage changes before committing. There are two solutions:<br />
+</p>
+
+<ul class="org-ul">
+<li>either<br /></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sh">git add my_file.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">add my_file.txt again to the staging area</span>
+git diff   <span class="org-comment-delimiter"># </span><span class="org-comment">difference between working copy and staging area</span>
+git diff --staged   <span class="org-comment-delimiter"># </span><span class="org-comment">difference between staging area and repository</span>
+git commit -m <span class="org-string">"continued my_file notes"</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>or<br /></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sh">git commit -a -m <span class="org-string">"continued my_file1"</span>   <span class="org-comment-delimiter"># </span><span class="org-comment">automatically add files that are already being tracked</span>
+</pre>
+</div>
+
+<div class="VERBATIM">
+<p>
+Create bio.txt, add 3 lines, commit to the repository, modify first line, add line 4,<br />
+display changes, commit to the repository.<br />
+</p>
+
 </div>
 </div>
 </div>
 
-<div id="outline-container-org95e431d" class="outline-2">
-<h2 id="org95e431d"><span class="section-number-2">7</span> Exploring project history</h2>
+<div id="outline-container-orgd6697b9" class="outline-2">
+<h2 id="orgd6697b9"><span class="section-number-2">7</span> Exploring the project history</h2>
 <div class="outline-text-2" id="text-7">
+<p>
+To list all the commits of a project, you can run:<br />
+</p>
+
 <div class="org-src-container">
 <pre class="src src-sh">git log
 </pre>
 </div>
 
 <p>
-HEAD is the latest version in the repository, HEAD~1 is the previous, &#x2026;<br />
+<code class="src src-sh">HEAD</code> is a symbolic reference to the currently checked-out commit. <code class="src src-sh">HEAD~1</code> (or <code class="src src-sh">HEAD~</code>) is the commit before that, <code class="src src-sh">HEAD~2</code> the one before that, &#x2026;<br />
 </p>
-
-<div class="org-src-container">
-<pre class="src src-sh">git diff HEAD~1 my_file1.txt
-git diff HEAD~2 my_file1.txt
-git diff specificVersionNumber my_file1.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">version numbers have 40 characters</span>
-git diff specificVersionNumberFirstFewUniquesCharacters my_file1.txt
-</pre>
-</div>
 
 <p>
-You accidentally removed or changed <code class="src src-sh">my_file1.txt</code>. How do you restore it?<br />
+A commit hash is the first 7 of the 40 characters of the version number of that commit.<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">git checkout HEAD my_file1.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">restore latest from the repository</span>
-git checkout specificVersionNumber my_file1.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">restore specific version from the repository</span>
+<pre class="src src-sh">git diff HEAD~1 my_file1.txt <span class="org-comment-delimiter"># </span><span class="org-comment">will show changes on my_file1.txt between HEAD and HEAD~1</span>
+git diff HEAD~2 my_file1.txt
+git diff &lt;hash&gt; my_file1.txt <span class="org-comment-delimiter"># </span><span class="org-comment">will show changes on my_file1.txt between HEAD and commit &lt;hash&gt;</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0da40d3" class="outline-2">
-<h2 id="org0da40d3"><span class="section-number-2">8</span> Ignoring files and directories</h2>
+<div id="outline-container-orgab02421" class="outline-2">
+<h2 id="orgab02421"><span class="section-number-2">8</span> Going back in time</h2>
 <div class="outline-text-2" id="text-8">
+<p>
+You made changes to <code class="src src-sh">my_file1.txt</code>, but would like to . How do you restore it?<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">git checkout HEAD my_file1.txt                  <span class="org-comment-delimiter"># </span><span class="org-comment">restore latest from the repository</span>
+git checkout specificVersionNumber my_file1.txt <span class="org-comment-delimiter"># </span><span class="org-comment">restore specific version from the repository</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc0d4ac7" class="outline-2">
+<h2 id="orgc0d4ac7"><span class="section-number-2">9</span> Ignoring files and directories</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+There are files you want to version control: code scripts, writing in text files.<br />
+</p>
+
+<p>
+But there are also files that you don't want to version control: initial data files (which you should keep unchanged), and any code output (table, new data, graphs).<br />
+</p>
+
+<p>
+Let's create such files:<br />
+</p>
+
 <div class="org-src-container">
 <pre class="src src-sh">mkdir results
 touch a.dat b.dat c.dat results/a.out results/b.out
 git status
-nano .gitignore   <span class="org-comment-delimiter"># </span><span class="org-comment">add *.dat and results, one per line</span>
+</pre>
+</div>
+
+<p>
+So, how can we exclude files or directories from version control?<br />
+</p>
+
+<p>
+We create a <code class="src src-sh">.gitignore file</code> containing the patterns of files and folders to ignore.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">nano .gitignore      <span class="org-comment-delimiter"># </span><span class="org-comment">add *.dat and results, one per line</span>
 git status
 git add .gitignore
 git commit -m <span class="org-string">"Add .gitignore file"</span>
 git status
-git status --ignored   <span class="org-comment-delimiter"># </span><span class="org-comment">show the ignored files</span>
+git status --ignored <span class="org-comment-delimiter"># </span><span class="org-comment">show the ignored files</span>
 </pre>
+</div>
+
+<div class="accordion">
+<p>
+<i>Note:</i> <code class="src src-sh">.gitignore</code> patterns<br />
+</p>
+
+</div>
+
+<div class="panel">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th align="left"><b>pattern</b></th>
+<th align="left"><b>example files ignored</b></th>
+<th align="left"><b>explanation</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>**/logs</code></td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/monday/foo.bar</td>
+<td class="org-left">a double asterisk before a pattern matches directories anywhere in the repository</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">build/logs/debug.log</td>
+<td class="org-left">(same as logs/ if I am correct)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>**/logs/debug.log</code></td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">build/logs/debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/build/debug.log</td>
+<td class="org-left">a double asterisk matches files based on their name and the name of their parent directory</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>*.log</code></td>
+<td class="org-left">debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">foo.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left">an asterisk is a wildcard that matches zero or more characters</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>*.log</code></td>
+<td class="org-left">debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!important.log</code></td>
+<td class="org-left">trace.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">an exclamation mark before a pattern negates it</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">important.log</td>
+<td class="org-left">if a file matches a pattern as well as a negating pattern defined <b>later</b> in the file,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/important.log</td>
+<td class="org-left">it will not be ignored</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>*.log</code></td>
+<td class="org-left">debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!important/*.log</code></td>
+<td class="org-left">important/trace.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>trace.*</code></td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">important/debug.log</td>
+<td class="org-left">patterns defined <b>after</b> a negating pattern will <b>cancel the negation</b></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>/debug.log</code></td>
+<td class="org-left">debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left">a slash before a file matches that file in the repository root only</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>debug.log</code></td>
+<td class="org-left">debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left">by default, patterns match files in any directory</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>debug?.log</code></td>
+<td class="org-left">debug0.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debugg.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug10.log</td>
+<td class="org-left">a question mark matches exactly one character</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>debug[0-9].log</code></td>
+<td class="org-left">debug0.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug1.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug10.log</td>
+<td class="org-left">square brackets with a dash match a character from a specified range</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>debug[01].log</code></td>
+<td class="org-left">debug0.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug1.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug2.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug01.log</td>
+<td class="org-left">square brackets match <b>a single</b> character from the specified set</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>debug[!01].log</code></td>
+<td class="org-left">debug2.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug0.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug1.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug01.log</td>
+<td class="org-left">an exclamation mark in square brackets excludes any character from the specified set</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>debug[a-z].log</code></td>
+<td class="org-left">debuga.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debugb.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug1.log</td>
+<td class="org-left">ranges can be numeric or alphabetic</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>logs</code></td>
+<td class="org-left">logs</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/latest/foo.bar</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">build/logs</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">build/logs/debug.log</td>
+<td class="org-left">with no slash, the pattern matches both files and the contents of directories with that name</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>logs/</code></td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left">with a slash, the pattern only matches directories</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/latest/foo.bar</td>
+<td class="org-left">(= the entire contents of any directory in the repository matching that name,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">build/logs/foo.bar</td>
+<td class="org-left">including all of its files and subdirectories)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">build/logs/a/debug.log</td>
+<td class="org-left">(same as **/logs if I am correct)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>logs/</code></td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left"><b>warning</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!logs/imp.log</code></td>
+<td class="org-left">logs/imp.log</td>
+<td class="org-left">one <b>cannot</b> negate a file that is ignored due to a pattern matching a directory</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">one way to go around that is to force the following of a file which is in an ignored directory</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">with the option -f (git add -f &lt;file&gt;)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>logs/**/imp.log</code></td>
+<td class="org-left">logs/imp.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/monday/imp.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/monday/pm/imp.log</td>
+<td class="org-left">a double asterisk matches zero or more directories</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>logs/*day/imp.log</code></td>
+<td class="org-left">logs/monday/imp.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/tuesday/imp.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">logs/latest/imp.log</td>
+<td class="org-left">wildcards can be used in directory names as well</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>logs/debug.log</code></td>
+<td class="org-left">logs/debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><i>but not</i></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">debug.log</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">build/logs/debug.log</td>
+<td class="org-left">patterns specifying a file in a particular directory are relative to the repository root</td>
+</tr>
+</tbody>
+</table>
+
+<div class="right">
+<p>
+<i>reformatted from <a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore">https://www.atlassian.com/git/tutorials/saving-changes/gitignore</a></i><br />
+</p>
+
+</div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9c9994a" class="outline-2">
-<h2 id="org9c9994a"><span class="section-number-2">9</span> Remotes</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgde03da2" class="outline-2">
+<h2 id="orgde03da2"><span class="section-number-2">10</span> Remotes</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 There are many different types of remotes: departmental git server, usb key, or Version control repository hosting services like <a href="https://github.com/">GitHub</a>, <a href="https://about.gitlab.com/">GitLab</a>, or <a href="https://bitbucket.org/">Bitbucket</a>.<br />
 </p>
@@ -959,12 +1532,12 @@ You should have already created a GitHub account. If you haven't, do this now.<b
 </div>
 
 <p>
-Now, we will create a remote for our <code class="src src-sh">intro_git</code> project on GitHub.<br />
+Now, we will create a remote for our <code class="src src-sh">project</code> project on GitHub.<br />
 </p>
 
 <div class="VERBATIM">
 <p>
-Log into github.com and create a new repository called "intro<sub>git</sub>"<br />
+Log into github.com and create a new repository called <code class="src src-sh">project</code><br />
 </p>
 
 </div>
@@ -974,7 +1547,7 @@ We need to link our local repository with this remote:<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">git remote add origin git@github.com:prosoitos/intro_git.git
+<pre class="src src-sh">git remote add origin git@github.com:prosoitos/project.git
 git remote
 git remote -v
 git push origin master   <span class="org-comment-delimiter"># </span><span class="org-comment">to upload to remote, should ask for password.</span>
@@ -987,9 +1560,9 @@ Check your GitHub repository in the web browser.<br />
 </div>
 </div>
 
-<div id="outline-container-orgfa29e7a" class="outline-2">
-<h2 id="orgfa29e7a"><span class="section-number-2">10</span> Collaborating</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-org1b05373" class="outline-2">
+<h2 id="org1b05373"><span class="section-number-2">11</span> Collaborating</h2>
+<div class="outline-text-2" id="text-11">
 <p>
 As mentioned earlier, git allows you to work with your collaborators synchronously. You don't have to wait for them to be done with a document until you can start working on it.<br />
 </p>
@@ -1019,8 +1592,8 @@ Everyone, please clone your partner's GitHub repository:<br />
 
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-builtin">cd</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">change to your home directory</span>
-<span class="org-builtin">pwd</span>   <span class="org-comment-delimiter"># </span><span class="org-comment">should now show 'intro_git'</span>
-git clone https://github.com/yourPartner/intro_git.git partner
+<span class="org-builtin">pwd</span>   <span class="org-comment-delimiter"># </span><span class="org-comment">should now show 'project'</span>
+git clone https://github.com/yourPartner/project.git partner
 <span class="org-builtin">cd</span> partner
 nano question.txt   <span class="org-comment-delimiter"># </span><span class="org-comment">make some changes to this file, e.g., ask a question</span>
 git commit -m -a <span class="org-string">"describe your changes"</span>
@@ -1033,7 +1606,7 @@ Then each one of you will download your partner's edits:<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-builtin">cd</span> ~/intro_git
+<pre class="src src-sh"><span class="org-builtin">cd</span> ~/project
 git pull origin master
 cat question.txt    <span class="org-comment-delimiter"># </span><span class="org-comment">you should see your partner's edits</span>
 </pre>
@@ -1041,9 +1614,9 @@ cat question.txt    <span class="org-comment-delimiter"># </span><span class="or
 </div>
 </div>
 
-<div id="outline-container-orgf780694" class="outline-2">
-<h2 id="orgf780694"><span class="section-number-2">11</span> Resolving conflicts</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-org1a285b7" class="outline-2">
+<h2 id="org1a285b7"><span class="section-number-2">12</span> Resolving conflicts</h2>
+<div class="outline-text-2" id="text-12">
 <div class="VERBATIM">
 <p>
 Two partners: pick one of the two repositories, synchronize them.<br />
@@ -1066,9 +1639,9 @@ git push origin master
 </div>
 </div>
 
-<div id="outline-container-orgd91f434" class="outline-2">
-<h2 id="orgd91f434"><span class="section-number-2">12</span> Contributing to a GitHub project</h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-orga7a4a88" class="outline-2">
+<h2 id="orga7a4a88"><span class="section-number-2">13</span> Contributing to a GitHub project</h2>
+<div class="outline-text-2" id="text-13">
 <div class="org-center">
 
 <div class="figure">
@@ -1099,10 +1672,12 @@ If the owner of the project accepts the pull request, the changes will be integr
 
 <div class="VERBATIM">
 <p>
-You will contribute to my GitHub project <code class="src src-sh">intro_git</code>.<br />
+You will contribute to my GitHub project <code class="src src-sh">project</code>.<br />
 </p>
 
 </div>
+
+<script>; var acc = document.getElementsByClassName("accordion"); var i; for (i = 0; i < acc.length; i++) {; acc[i].addEventListener("click", function() {; this.classList.toggle("active"); var panel = this.nextElementSibling; if (panel.style.maxHeight){; panel.style.maxHeight = null; } else {; panel.style.maxHeight = panel.scrollHeight + "px"; }; }); }; </script>
 </div>
 </div>
 </div>
