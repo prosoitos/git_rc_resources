@@ -7,8 +7,9 @@
 #+PROPERTY: header-args:sh :exports code
 
 #+TITLE:   Version control with Git
-#+DATE:	   {{{time(%B %d\, %Y)}}}
+#+DATE:	  {{{time(%B %d\, %Y)}}}
 #+AUTHOR:  Marie-Hélène Burle
+#+CREATOR: Simon Fraser University, Research Commons
 #+EMAIL:   msb2@sfu.ca
 
 #+BEGIN_CENTER

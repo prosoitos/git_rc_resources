@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-02 Wed 10:23 -->
+<!-- 2018-08-31 Fri 13:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Version control with Git</title>
@@ -370,6 +370,38 @@
     /* border-radius: 5px; */
     /* font-size: 95%; */
   }
+  div[class="RED"] {	/*for block with monospace font*/
+    /* font-family: 'Anonymous Pro'; */
+    /* font-family: 'Roboto Slab Thin'; */
+    /* margin: auto; */
+    /* width: max-content; */
+    /* color: #a52a2a; */
+    /* font-weight: bold; */
+    /* font-style: italic; */
+    padding: 0.1em 0.8em;
+    /* font-size: 95%; */
+    /* line-height: 20px; */
+    /* margin: 0 0 0 5px; */
+    /* border: 0.5pt solid #d9d9d9; */
+    /* border-radius: 5px; */
+    /* font-size: 95%; */
+    /* padding: 0em 1em; */
+    /* margin: 0.7em 0 0 0; */
+    background-color: #f5deb3;
+    /* border: 0.5pt solid #d9d9d9; */
+    /* border-radius: 5px; */
+    /* max-height: 0; */
+    /* overflow: hidden; */
+    /* transition: max-height 0.2s ease-out; */
+    /* background-color: #f1f1f1; */
+    color: #262626;
+    /* padding: 0.8em; */
+    font-size: 92%;
+    /* line-height: 22px; */
+    /* border: 0.5pt solid #d9d9d9; */
+    border-radius: 5px;
+    box-shadow: 0pt 0pt 0pt #eee8d5;
+  }
   div[class="VERBATIM"] {	/*for block verbatim*/
     /* background-color: #f4faff; */
     line-height: 27px;
@@ -505,7 +537,7 @@
     border-radius: 0.2em;
     background-color: #859900;
   }
-  
+
   /* TOC inspired by http://jashkenas.github.com/coffee-script */
   #table-of-contents {
     font-size: 10pt;
@@ -614,7 +646,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="preamble" class="status">
-<span style="color:#596a73; font-size:16px"><b>Marie-Hélène Burle</b><br>May 02, 2018</span>
+<span style="color:#596a73; font-size:17px"><b>Marie-Hélène Burle</b></span><br><span style="color:#8a8a8a; font-size:15px"><b>Simon Fraser University, Research Commons</b></span><br><span style="color:#596a73; font-size:15px"><img src="./favicons/email.ico" alt="email" height="16" width="16"> <a href="mailto:msb2@sfu.ca">msb2@sfu.ca</a>&nbsp;&nbsp;<img src="./favicons/twitter.ico" alt="twitter" height="17" width="17"> <a href="https://twitter.com/MHBurle">@MHBurle</a>&nbsp;&nbsp;<img src="./favicons/gh.ico" alt="github" height="15" width="15"> <a href="https://github.com/prosoitos">prosoitos</a></span><br><span style="color:#596a73; font-size:16px">August 31, 2018</span>
 </div>
 <div id="content">
 <h1 class="title">Version control with Git</h1>
@@ -622,24 +654,24 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org905d3f5">1. Prerequisites</a></li>
-<li><a href="#org2c5be83">2. Version control</a>
+<li><a href="#orgd80e091">1. Prerequisites</a></li>
+<li><a href="#org180fe01">2. Version control</a>
 <ul>
-<li><a href="#org0cdbf45">2.1. Any easy way to keep track and navigate the whole history of a project</a></li>
-<li><a href="#org6e0b121">2.2. Any easy way to collaborate synchronously</a></li>
+<li><a href="#org30c9648">2.1. Any easy way to keep track and navigate the whole history of a project</a></li>
+<li><a href="#org524fff9">2.2. Any easy way to collaborate synchronously</a></li>
 </ul>
 </li>
-<li><a href="#org505add0">3. Getting help</a></li>
-<li><a href="#org74942f6">4. Setting up git</a></li>
-<li><a href="#orgac921c4">5. Creating a repository</a></li>
-<li><a href="#orgff60e57">6. Tracking changes</a></li>
-<li><a href="#orgfc72873">7. Exploring the project history</a></li>
-<li><a href="#orgf7e53a8">8. Going back in time</a></li>
-<li><a href="#org659c6aa">9. Ignoring files and directories</a></li>
-<li><a href="#org050f229">10. Remotes</a></li>
-<li><a href="#org5e630a1">11. Collaborating</a></li>
-<li><a href="#org095e7c3">12. Resolving conflicts</a></li>
-<li><a href="#orgbb955a4">13. Contributing to a GitHub project</a></li>
+<li><a href="#org6aac0b8">3. Getting help</a></li>
+<li><a href="#org4b9283a">4. Setting up git</a></li>
+<li><a href="#org6d99946">5. Creating a repository</a></li>
+<li><a href="#org7e4bb73">6. Tracking changes</a></li>
+<li><a href="#org85652d5">7. Exploring the project history</a></li>
+<li><a href="#orgc466220">8. Going back in time</a></li>
+<li><a href="#orgf39c235">9. Ignoring files and directories</a></li>
+<li><a href="#org6268405">10. Remotes</a></li>
+<li><a href="#org179ff8a">11. Collaborating</a></li>
+<li><a href="#org3192dde">12. Resolving conflicts</a></li>
+<li><a href="#orgc257ceb">13. Contributing to a GitHub project</a></li>
 </ul>
 </div>
 </div>
@@ -657,8 +689,8 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-org905d3f5" class="outline-2">
-<h2 id="org905d3f5"><span class="section-number-2">1</span> Prerequisites</h2>
+<div id="outline-container-orgd80e091" class="outline-2">
+<h2 id="orgd80e091"><span class="section-number-2">1</span> Prerequisites</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For this workshop, you need:<br />
@@ -671,8 +703,8 @@ For this workshop, you need:<br />
 </div>
 </div>
 
-<div id="outline-container-org2c5be83" class="outline-2">
-<h2 id="org2c5be83"><span class="section-number-2">2</span> Version control</h2>
+<div id="outline-container-org180fe01" class="outline-2">
+<h2 id="org180fe01"><span class="section-number-2">2</span> Version control</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -681,8 +713,8 @@ Why?<br />
 </blockquote>
 </div>
 
-<div id="outline-container-org0cdbf45" class="outline-3">
-<h3 id="org0cdbf45"><span class="section-number-3">2.1</span> Any easy way to keep track and navigate the whole history of a project</h3>
+<div id="outline-container-org30c9648" class="outline-3">
+<h3 id="org30c9648"><span class="section-number-3">2.1</span> Any easy way to keep track and navigate the whole history of a project</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-center">
 
@@ -694,8 +726,8 @@ Why?<br />
 </div>
 </div>
 
-<div id="outline-container-org6e0b121" class="outline-3">
-<h3 id="org6e0b121"><span class="section-number-3">2.2</span> Any easy way to collaborate synchronously</h3>
+<div id="outline-container-org524fff9" class="outline-3">
+<h3 id="org524fff9"><span class="section-number-3">2.2</span> Any easy way to collaborate synchronously</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-center">
 
@@ -708,8 +740,8 @@ Why?<br />
 </div>
 </div>
 
-<div id="outline-container-org505add0" class="outline-2">
-<h2 id="org505add0"><span class="section-number-2">3</span> Getting help</h2>
+<div id="outline-container-org6aac0b8" class="outline-2">
+<h2 id="org6aac0b8"><span class="section-number-2">3</span> Getting help</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 First things first: how to get help on git?<br />
@@ -743,8 +775,8 @@ Example: git commit -h
 </div>
 </div>
 
-<div id="outline-container-org74942f6" class="outline-2">
-<h2 id="org74942f6"><span class="section-number-2">4</span> Setting up git</h2>
+<div id="outline-container-org4b9283a" class="outline-2">
+<h2 id="org4b9283a"><span class="section-number-2">4</span> Setting up git</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-sh">git config --global user.name <span class="org-string">"Your Name"</span>
@@ -766,8 +798,8 @@ Configure git on your laptop.<br />
 </div>
 </div>
 
-<div id="outline-container-orgac921c4" class="outline-2">
-<h2 id="orgac921c4"><span class="section-number-2">5</span> Creating a repository</h2>
+<div id="outline-container-org6d99946" class="outline-2">
+<h2 id="org6d99946"><span class="section-number-2">5</span> Creating a repository</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We will create a project called <code class="src src-sh">project</code>. You can create it anywhere you wish on your machine.<br />
@@ -816,8 +848,8 @@ How would you undo <code class="src src-sh">git init</code>?<br />
 </div>
 </div>
 
-<div id="outline-container-orgff60e57" class="outline-2">
-<h2 id="orgff60e57"><span class="section-number-2">6</span> Tracking changes</h2>
+<div id="outline-container-org7e4bb73" class="outline-2">
+<h2 id="org7e4bb73"><span class="section-number-2">6</span> Tracking changes</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Let's create 3 files in our new repository:<br />
@@ -948,8 +980,8 @@ display changes, commit to the repository.<br />
 </div>
 </div>
 
-<div id="outline-container-orgfc72873" class="outline-2">
-<h2 id="orgfc72873"><span class="section-number-2">7</span> Exploring the project history</h2>
+<div id="outline-container-org85652d5" class="outline-2">
+<h2 id="org85652d5"><span class="section-number-2">7</span> Exploring the project history</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 To list all the commits of a project, you can run:<br />
@@ -977,8 +1009,8 @@ git diff &lt;hash&gt; my_file1.txt <span class="org-comment-delimiter"># </span>
 </div>
 </div>
 
-<div id="outline-container-orgf7e53a8" class="outline-2">
-<h2 id="orgf7e53a8"><span class="section-number-2">8</span> Going back in time</h2>
+<div id="outline-container-orgc466220" class="outline-2">
+<h2 id="orgc466220"><span class="section-number-2">8</span> Going back in time</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 You made changes to <code class="src src-sh">my_file1.txt</code>, but would like to . How do you restore it?<br />
@@ -992,8 +1024,8 @@ git checkout specificVersionNumber my_file1.txt <span class="org-comment-delimit
 </div>
 </div>
 
-<div id="outline-container-org659c6aa" class="outline-2">
-<h2 id="org659c6aa"><span class="section-number-2">9</span> Ignoring files and directories</h2>
+<div id="outline-container-orgf39c235" class="outline-2">
+<h2 id="orgf39c235"><span class="section-number-2">9</span> Ignoring files and directories</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 There are files you want to version control: code scripts, writing in text files.<br />
@@ -1513,8 +1545,8 @@ git status --ignored <span class="org-comment-delimiter"># </span><span class="o
 </div>
 </div>
 
-<div id="outline-container-org050f229" class="outline-2">
-<h2 id="org050f229"><span class="section-number-2">10</span> Remotes</h2>
+<div id="outline-container-org6268405" class="outline-2">
+<h2 id="org6268405"><span class="section-number-2">10</span> Remotes</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 There are many different types of remotes: departmental git server, usb key, or Version control repository hosting services like <a href="https://github.com/">GitHub</a>, <a href="https://about.gitlab.com/">GitLab</a>, or <a href="https://bitbucket.org/">Bitbucket</a>.<br />
@@ -1560,8 +1592,8 @@ Check your GitHub repository in the web browser.<br />
 </div>
 </div>
 
-<div id="outline-container-org5e630a1" class="outline-2">
-<h2 id="org5e630a1"><span class="section-number-2">11</span> Collaborating</h2>
+<div id="outline-container-org179ff8a" class="outline-2">
+<h2 id="org179ff8a"><span class="section-number-2">11</span> Collaborating</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 As mentioned earlier, git allows you to work with your collaborators synchronously. You don't have to wait for them to be done with a document until you can start working on it.<br />
@@ -1614,8 +1646,8 @@ cat question.txt    <span class="org-comment-delimiter"># </span><span class="or
 </div>
 </div>
 
-<div id="outline-container-org095e7c3" class="outline-2">
-<h2 id="org095e7c3"><span class="section-number-2">12</span> Resolving conflicts</h2>
+<div id="outline-container-org3192dde" class="outline-2">
+<h2 id="org3192dde"><span class="section-number-2">12</span> Resolving conflicts</h2>
 <div class="outline-text-2" id="text-12">
 <div class="VERBATIM">
 <p>
@@ -1639,8 +1671,8 @@ git push origin master
 </div>
 </div>
 
-<div id="outline-container-orgbb955a4" class="outline-2">
-<h2 id="orgbb955a4"><span class="section-number-2">13</span> Contributing to a GitHub project</h2>
+<div id="outline-container-orgc257ceb" class="outline-2">
+<h2 id="orgc257ceb"><span class="section-number-2">13</span> Contributing to a GitHub project</h2>
 <div class="outline-text-2" id="text-13">
 <div class="org-center">
 
@@ -1651,7 +1683,7 @@ git push origin master
 </div>
 
 <style type="text/css">
-ol { list-style-type: upper-roman; }
+ol { list-style-type: upper-alpha; }
 </style>
 <ol class="org-ol">
 <li>fork a project<br /></li>
